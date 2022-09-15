@@ -4,8 +4,6 @@ import boto3
 ec2 = boto3.resource('ec2')
 instances = ec2.instances.filter(Filters=[{'Name': 'tag:Name', 'Values': ['Jenkins_Built_instance']}])
 for instance in instances:
-    if instance.tags == None:
-        print(instance.id)
-        instance.stop()
-    else:
-        instance.start()
+  print("stopping instance") 
+  instance.stop()
+  
