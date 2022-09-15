@@ -4,7 +4,7 @@ TAGS = ['production', 'development']
 #myinstance = ec2.describe_instances()
 ec2 = boto3.resource('ec2')
 instances = ec2.instances.filter(Filters=[{'Name': 'tag:Purpose', 'Values': ['Production']}, {'Name': 'tag:Purpose', 'Values': ['Dev']}])
-for instance not in instances:
+for instance in instances:
    id=instance.id
    ec2.instances.filter(InstanceIds=[id]).stop()
    print("Instance ID is stopped:- "+instance.id)
