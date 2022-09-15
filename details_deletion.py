@@ -4,9 +4,9 @@ import boto3
 ec2 = boto3.resource('ec2')
 instances = ec2.instances.filter()
 tags = {}
-for tag in instance_object.tags:
+for tag in instances.tags:
  tags[tag['Key']] = tag['Value']
  if('Purpose' not in tags or tags['Purpose'] not in TAGS):
-   instance_object.stop()
+   instances.stop()
 
   
