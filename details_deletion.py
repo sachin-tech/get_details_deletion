@@ -4,7 +4,7 @@ import boto3
 ec2 = boto3.resource('ec2')
 base = ec2.instances.filter()
 filters = [{
-    'Name': 'Name',
+    'Key': 'Name',
     'Values': ['Jenkins_Built_instance']
 }]
 filtered1 = base.filter(Filters=filters)
